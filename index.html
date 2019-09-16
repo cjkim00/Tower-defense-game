@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Game Project Shell</title>
+    <link rel="stylesheet" href="style.css" type="text/css" charset="utf-8" />
+
+    <script type="text/javascript" src="./gameengine.js"></script>
+    <script type="text/javascript" src="./assetmanager.js"></script>
+    <script type="text/javascript" src="./main.js"></script>
+    <script type="text/javascript" src="./hero.js"></script>
+    <script type="text/javascript" src="./tower.js"></script>
+</head>
+
+<body>
+
+    <div id="container">
+        <!--This is to center everything-->
+        <div id="outer">
+            <!--This is how we can get borders on the side-->
+            <div id="inner">
+                <!--This is to have content on the inside of the borders-->
+                <div id="left">
+                    <!--We can add stats about the game here.-->
+                    <h1>Controls</h1>
+                    <p>Click on the tower you want to build</p>
+                    <br>
+                    <p>Then click on a valid area to build</p>
+                    <br>
+                    <!--<p id ="Tower Type: "></p>-->
+                    <p id ="Damage"></p>
+                    <p id ="Level"></p>
+                    <p id ="FireRate"></p>
+                    <p id ="UpgradeCost"></p>
+                    <p id ="SellCost"></p>
+                    <div class="horiz-buttons" id="upgrade-sell">
+                        <button id="Sell" onclick="if (currentTower) sell(currentTower)">Sell</button>
+                        <button id="Upgrade" onclick="if (currentTower) upgrade(currentTower)">Upgrade</button>
+                      </div>
+                </div>
+                <!--End of left content-->
+                <div id="right">
+                    <div id="right-status">
+                        <pf> Gold 
+                            <span id="Gold"></span>
+                            <br> Health
+                            <span id="Health"></span>
+                            <br> Wave: 
+                            <span id="Wave"></span>
+                        </pf>
+                    </div>
+                    <!--We can add buttons for the towers here-->
+                    <div id="right ">
+                        <!--<a data-name="Arrow"><img class="arrow dropdown" src="./img/towers/arrow1.png"></a>-->
+                        <!--Not sure how to handle this one.-->
+                        <!-- <script> document.getElementById("arrow_dropdown").addEventListener("click", function();</script> -->
+                        <button id="ArrowTowerButton"></button>
+
+                        <script type="text/javascript">
+                            var buttons = document.getElementById("ArrowTowerButton");
+                            buttons.innerHTML = '<img src="./img/towers/tower_a1_48w_107h.png" />';
+                        </script>
+                        <p>Arrow ($50)</p>
+                        <!--have cost change dynamically later-->
+
+                        <div class="arrow dropdown-content">
+                            <!--insert scripts here for upgrades-->
+                            <p>
+                                <a href="javascript:void(0)">Upgrade Damage</a>
+                                <a href="upkeep-damage">Upgrade Rate</a>
+                                <a href="upkeep-rate"></a>
+                                <a href="upkeep-range"></a>
+                                <a href="upkeep-sell"></a>
+                            </p>
+                        </div>
+
+                        <!--<img class="Cannon dropdown" src="./img/towers/cannon1.png">-->
+                        <button id="CannonTowerButton"></button>
+
+                        <script type="text/javascript">
+                            var buttons = document.getElementById("CannonTowerButton");
+                            buttons.innerHTML = '<img src="./img/towers/tower_c1_48w_96h.png" />';
+                        </script>
+                        <p>Cannon ($65)</p>
+
+                        <div class="cannon dropdown-content">
+                            <p>
+                                <a href="upkeep-damage"></a>
+                                <a href="upkeep-rate"></a>
+                                <a href="upkeep-range"></a>
+                                <a href="upkeep-sell"></a>
+                            </p>
+                        </div>
+
+
+                        <!--<img class="Magic dropdown" src="./img/towers/magic1.png" style="align-self: auto;">-->
+                        <button id="MagicTowerButton"></button>
+
+                        <script type="text/javascript">
+                            var buttons = document.getElementById("MagicTowerButton");
+                            buttons.innerHTML = '<img src="./img/towers/tower_m1_48w_102h.png" />';
+                        </script>
+                        <p>Magic ($80)</p>
+
+                        <div class="Magic dropdown-content">
+                            <p>
+                                <a href="upkeep-damage"></a>
+                                <a href="upkeep-rate"></a>
+                                <a href="upkeep-range"></a>
+                                <a href="upkeep-sell"></a>
+                            </p>
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <!--End of right content-->
+
+                <div id="content">
+                    <!--Put our game canvas display here-->
+                    <canvas id="gameWorld" tabindex="1" width="800" height="700"style="z-index: 1; position: relative;background:white;"></canvas>
+
+                    <!-- style="border: 1px solid brown; background: lightskyblue; position: relative;"> -->
+                    <!-- <canvas style="z-index:1"></canvas> //want to make multiple canvases -->
+
+                    <!-- transform: translate(-50%, -50%)"> -->
+                    <!-- style="border: 1px solid brown; background: lightskyblue; position: relative;"> -->
+                    <!-- <canvas style="z-index:1"></canvas> //want to make multiple canvases -->
+
+                </div>
+                <!--End of content-->
+            </div>
+            <div id="control">
+                <div id="control-left">
+                    <img src="img/towers/arrow1.png" width="55" height="55">
+
+                </div>
+
+                <div id="control-right">
+
+                    <div id="control-right-2">
+                        <button type="button"><a href="">Reset</a><br></button>
+                    </div>
+
+                </div>
+            </div>
+            <!--End of inner-->
+        </div>
+        <!--End of outer-->
+    </div>
+
+
+
+</body>
+
+</html>
